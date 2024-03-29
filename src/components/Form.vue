@@ -79,6 +79,10 @@ import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 import qs from 'qs';
 
+// -- 可更改区域
+// TODO: 可替换为相应的后端服务基地址，注意末尾没有斜杠
+const baseUrl = ref('https://feishu-get-xhs-data-backend-wuyi.replit.app')  
+
 
 // -- 数据区域
 const { t } = useI18n();
@@ -303,7 +307,7 @@ const getSelectedFieldsId = (fieldList, checkedFields) => {
 */
 const getXHSdatabylink = async (path, noteLink) => {
   
-  var url = `https://get-xhs-data-by-link-1326906378.replit.app/${path}`
+  var url = `${baseUrl.value}/${path}`
   // var url = `https://b38518d2-23ba-4ef1-bb13-9d8618f01f35-00-271zcrskr9ata.worf.replit.dev/${path}`
   let res;
 
